@@ -638,6 +638,9 @@
     </div>
   </header>
 
+  <div id="kao-banner-en" lang="en"></div>
+  <div id="kao-banner-de" lang="de" hidden></div>
+
   <main id="top">
     <section class="wrap hero">
       <div>
@@ -856,6 +859,8 @@
       document.documentElement.lang = lang;
       localStorage.setItem('portfolio-language', lang);
       $$('.lang-btn').forEach((button) => button.classList.toggle('active', button.dataset.lang === lang));
+      $('#kao-banner-en').hidden = lang === 'de';
+      $('#kao-banner-de').hidden = lang !== 'de';
 
       $$('.nav-links a').forEach((link, i) => link.textContent = t.nav[i]);
       $('.nav-tools .btn').textContent = t.github;
@@ -997,5 +1002,7 @@
       }
     });
   </script>
+  <script defer src="https://keepandroidopen.org/banner.js?lang=en&amp;id=kao-banner-en&amp;size=mini&amp;hidebutton=off&amp;animation=off"></script>
+  <script defer src="https://keepandroidopen.org/banner.js?lang=de&amp;id=kao-banner-de&amp;size=mini&amp;hidebutton=off&amp;animation=off"></script>
 </body>
 </html>
